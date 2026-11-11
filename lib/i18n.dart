@@ -462,6 +462,8 @@ const Map<String, List<String>> _s = {
   'oweBanner': ['Owe {a} · {g}', 'Deni {a} · {g}'],
   'limitBanner': ['{c} at {p}% of limit', '{c} imefika {p}% ya mpaka'],
   // ---- v4 ----
+  'addedSinceStart': ['added since you started', 'umeongeza tangu uanze'],
+  'stillNeeded': ['Still needed', 'Bado'],
   'name': ['Name', 'Jina'],
   'phone': ['Phone', 'Simu'],
   'email': ['Email', 'Barua pepe'],
