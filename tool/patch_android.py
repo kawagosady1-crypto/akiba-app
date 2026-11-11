@@ -82,8 +82,8 @@ if (pathlib.Path('android') / 'key.properties').exists():
         g = kts.read_text()
         block = '''    signingConfigs {
         create("release") {
-            val props = java.util.Properties()
-            props.load(java.io.FileInputStream(rootProject.file("key.properties")))
+            val props = Properties()
+            props.load(FileInputStream(rootProject.file("key.properties")))
             keyAlias = props.getProperty("keyAlias")
             keyPassword = props.getProperty("keyPassword")
             storeFile = file(props.getProperty("storeFile"))
@@ -94,6 +94,8 @@ if (pathlib.Path('android') / 'key.properties').exists():
 '''
         if 'create("release")' not in g:
             g = g.replace('    buildTypes {', block + '    buildTypes {', 1)
+        if 'import java.util.Properties' not in g:
+            g = 'import java.io.FileInputStream\nimport java.util.Properties\n\n' + g
         g = g.replace('signingConfigs.getByName("debug")', 'signingConfigs.getByName("release")')
         kts.write_text(g)
     else:
