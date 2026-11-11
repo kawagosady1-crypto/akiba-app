@@ -57,10 +57,10 @@ class ProgressRing extends StatelessWidget {
   final double value;
   final double size;
   final Widget? center;
-  final Color track;
-  final Color fill;
+  final Color? track;
+  final Color? fill;
   final double stroke;
-  ProgressRing({
+  const ProgressRing({
     super.key,
     required this.value,
     this.size = 112,
